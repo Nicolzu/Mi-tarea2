@@ -1,5 +1,4 @@
 /* Reset de estilos */
-/* Reset de estilos */
 *{
     box-sizing: border-box;
 }
@@ -10,7 +9,7 @@ body{
 }
 
 :root{
-    --color-principal: #0b5ed7;
+    --color-principal: #d7480b;
     --color-texto: #000000;
     --ancho-max:1140px 
 }
@@ -35,6 +34,7 @@ body{
     text-decoration:none;
 
 }
+
 .menu ul{
 display: flex;
 gap: 1.5rem;
@@ -69,7 +69,7 @@ text-decoration:none;
     height:3px;
     background-color:var(--color-texto);
     border-radius: 2px;
-    transition: transform .2s, opacity .2s; /animar en clase 4/
+    transition: transform .2s, opacity .2s; /*animar en clase 4*/
 }
 
 /*Portada */
@@ -100,7 +100,7 @@ font-weight: bold;
     color: var(--color-principal);
 }
 
-/footer/
+/*footer*/
 .footer{
     display:flex;
     flex-direction:column;
@@ -124,31 +124,42 @@ footer a{
     list-style:none;
     margin:0;
     padding:0;
-}.cards { display: flex; flex-wrap: wrap; gap: 1rem; }
+}
+
+.cards { display: flex; flex-wrap: wrap; gap: 1rem; }
 
 .tarjeta {
   width: 100%;
+  height: auto;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+  box-shadow: 0px 20px 6px rgba(0,0,0,.1);
   overflow: hidden;
   transition: transform .2s;
 }
 .tarjeta:hover { transform: translateY(-4px); }
 
-@media (min-width: 701px) { .tarjeta { width: calc(50% - .5rem); } }
-@media (min-width: 991px) { .tarjeta { width: calc(33.333% - .67rem); } }
+@media (min-width: 701px) { 
 
-.accordion .titulo {
+    .tarjeta { width: 45%; } 
+}
+@media (min-width: 991px) { 
+    .tarjeta { width: calc(33.333% - .67rem); }
+ }
+
+ /*acoordion*/
+ .accordion .titulo {
   width: 100%;
   padding: 1rem;
   text-align: left;
   font-size: 1rem;
   background: #f1f3f5;
   border: 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 5px solid #ddd;
   cursor: pointer;
 }
+
+
 
 .accordion .contenido { display: none; padding: 0 1rem; }
 .accordion .item.activo .contenido { display: block; }
@@ -157,7 +168,12 @@ footer a{
 /* base: celular */
 .menu { display: none; }        /* lo abrirá la hamburguesa */
 
+.header { flex-wrap: wrap; }          /* el menú abierto baja a otra línea */
+.menu { width: 100%; }
+.menu.abierto { display: block; }
+.menu.abierto ul { flex-direction: column; padding-top: 1rem; }
 @media (min-width: 501px) {
+
   .portada h1 { font-size: 2.1rem; }
 }
 
@@ -175,4 +191,17 @@ footer a{
   .menu { display: block; }       /* menú normal en pantalla grande */
   .hamburguesa { display: none; }
   .portada h1 { font-size: 2.6rem; }
-} 
+  .menu { display: block; width: auto; }   /* siempre visible en escritorio */
+.hamburguesa { display: none; }
+.menu.abierto ul { flex-direction: row; padding-top: 0; }
+}
+
+.hamburguesa.activo span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburguesa.activo span:nth-child(2) { opacity: 0; }
+.hamburguesa.activo span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+.cards img{
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+   
+}
